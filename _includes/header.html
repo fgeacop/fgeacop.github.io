@@ -16,8 +16,8 @@
         {% assign item_path = item_url | relative_url %}
         <a href="{{ item_path }}"{% if page.url == item_url or page.url == item_path %} aria-current="page"{% endif %}>{{ item_label }}</a>
       {% endfor %}
-      {% if organization.email %}
-        <a class="nav-cta" href="mailto:{{ organization.email | uri_escape }}">Contact us</a>
+      {% if organization.registration_url %}
+        <a class="nav-cta" href="{{ organization.registration_url }}" rel="noopener">Register</a>
       {% endif %}
     </nav>
   </div>
