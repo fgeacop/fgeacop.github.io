@@ -148,8 +148,8 @@ orientation into the pixels before recording image dimensions.
 For historical imports, preserve the source's status: use `recap` only when
 the source explicitly reports occurrence or completion. Otherwise retain
 `announcement` or `update`, even after the scheduled date has passed. Keep an
-unobtrusive provenance statement in the body and the canonical DigiSAS URL in
-the source fields.
+optional canonical source URL in the source fields; do not add migration or
+source-verification disclaimers to visitor-facing copy.
 
 ## Drafts, publication, and removal
 
