@@ -59,6 +59,7 @@ end_time: "12:30"
 timezone: Australia/Sydney
 format: online
 event_status: confirmed
+occurrence_status: scheduled
 source: https://example.org/announcement
 source_label: Original announcement
 published: true
@@ -66,8 +67,12 @@ published: true
 ```
 
 Dates must be quoted. Times use 24-hour `HH:MM`. Add a quoted `end_date` for a
-multi-day event. `format` is `online`, `in-person`, or `hybrid`.
+multi-day event. `format` is `online`, `in-person`, or `hybrid`. Use
+`unspecified` only for a historical source that does not establish a format.
 `event_status` is `confirmed`, `tentative`, `postponed`, or `cancelled`.
+`occurrence_status` is `scheduled` for a future event, `occurred` when a
+reviewed source confirms delivery, or `unconfirmed` when a historical source
+records only the planned schedule.
 
 Include `venue`, `location`, or `registration_url` only when verified.
 `registration_url` must be an absolute HTTP(S) URL. Keep the source and its
@@ -120,11 +125,31 @@ or links require factual review.
 
 ## Images
 
-Store local images below `assets/images/`. An `image` field must have an
-`image_alt` field, including an empty string only when the image is genuinely
-decorative. Do not hotlink an essential image. Confirm provenance, reuse
-permission, credit, dimensions, and compression before publishing. No logo or
-favicon should be inferred from decorative site artwork.
+Store event images below `assets/images/events/<event-id>/`. An `image` field
+requires non-empty `image_alt`, positive `image_width` and `image_height`
+values, and may have an `image_caption`. Use factual, non-identifying alt text
+and visible captions; identify people only when the source does so. Put
+below-the-fold images in semantic figures with `loading="lazy"`, dimensions,
+and captions.
+
+Do not hotlink an essential image or retain a WordPress thumbnail when the
+original is available. Convert HEIC files to browser-compatible JPEG or WebP,
+correct orientation, optimise oversized files, and check signatures and
+dimensions. Transcribe legible agenda text into Markdown for accessibility,
+while retaining the published agenda image for visual reference.
+
+Every local media file must have an entry in `_data/media.yml` recording its
+source URL and page, original format, any conversion or optimisation, and reuse
+authorisation. Store shared media once. Do not publish partner logos without
+current permission, and do not infer trademark rights from content ownership.
+Strip EXIF, GPS, IPTC, and XMP metadata from web derivatives, and bake camera
+orientation into the pixels before recording image dimensions.
+
+For historical imports, preserve the source's status: use `recap` only when
+the source explicitly reports occurrence or completion. Otherwise retain
+`announcement` or `update`, even after the scheduled date has passed. Keep an
+unobtrusive provenance statement in the body and the canonical DigiSAS URL in
+the source fields.
 
 ## Drafts, publication, and removal
 

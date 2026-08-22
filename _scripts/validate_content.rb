@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require "date"
+require "exifr/jpeg"
 require "pathname"
 require "psych"
 require "time"
@@ -10,8 +11,9 @@ require "uri"
 
 ROOT = Pathname.new(__dir__).parent.expand_path
 POST_KINDS = %w[announcement recap article update].freeze
-EVENT_FORMATS = %w[online in-person hybrid].freeze
+EVENT_FORMATS = %w[online in-person hybrid unspecified].freeze
 EVENT_STATUSES = %w[confirmed tentative postponed cancelled].freeze
+EVENT_OCCURRENCE_STATUSES = %w[occurred scheduled unconfirmed].freeze
 RESOURCE_TYPES = %w[report guide tool recording presentation article other].freeze
 ID_PATTERN = /\A[a-z0-9]+(?:-[a-z0-9]+)*\z/
 ISO_DATE = /\A\d{4}-\d{2}-\d{2}\z/
@@ -129,15 +131,69 @@ def validate_local_file(path, value, field, errors)
   errors << "#{path}: #{field} does not exist: #{value}" unless target.file?
 end
 
+def image_dimensions(path)
+  case path.extname.downcase
+  when ".jpg", ".jpeg"
+    image = EXIFR::JPEG.new(path.to_s)
+    [image.width, image.height]
+  when ".png"
+    header = path.binread(24)
+    raise "invalid PNG signature" unless header.start_with?("\x89PNG\r\n\x1A\n".b)
+
+    header.byteslice(16, 8).unpack("NN")
+  else
+    raise "unsupported image format"
+  end
+end
+
+def png_chunk_types(path)
+  data = path.binread
+  raise "invalid PNG signature" unless data.start_with?("\x89PNG\r\n\x1A\n".b)
+
+  chunks = []
+  offset = 8
+  while offset + 12 <= data.bytesize
+    length = data.byteslice(offset, 4).unpack1("N")
+    type = data.byteslice(offset + 4, 4)
+    raise "invalid PNG chunk" unless type && offset + length + 12 <= data.bytesize
+
+    chunks << type
+    offset += length + 12
+    break if type == "IEND"
+  end
+  chunks
+end
+
 def validate_image(path, data, errors)
-  if data.key?("image") != data.key?("image_alt")
-    errors << "#{path}: image and image_alt must be provided together"
+  image_fields = %w[image image_alt image_width image_height]
+  if image_fields.any? { |field| data.key?(field) } && !image_fields.all? { |field| data.key?(field) }
+    errors << "#{path}: image, image_alt, image_width, and image_height must be provided together"
     return
   end
   return unless data.key?("image")
 
   validate_local_file(path, data["image"], "image", errors)
-  errors << "#{path}: image_alt must be a string" unless data["image_alt"].is_a?(String)
+  unless data["image_alt"].is_a?(String) && !data["image_alt"].strip.empty?
+    errors << "#{path}: image_alt must be a non-empty string"
+  end
+  %w[image_width image_height].each do |field|
+    errors << "#{path}: #{field} must be a positive integer" unless data[field].is_a?(Integer) && data[field].positive?
+  end
+  if data.key?("image_caption") && (!data["image_caption"].is_a?(String) || data["image_caption"].strip.empty?)
+    errors << "#{path}: image_caption must be a non-empty string"
+  end
+  return unless safe_local_path?(data["image"])
+
+  target = ROOT.join(data["image"].sub(%r{\A/}, "")).cleanpath
+  return unless target.file?
+
+  actual_width, actual_height = image_dimensions(target)
+  unless [data["image_width"], data["image_height"]] == [actual_width, actual_height]
+    errors << "#{path}: declared image dimensions #{data['image_width']}x#{data['image_height']} " \
+              "do not match #{actual_width}x#{actual_height}"
+  end
+rescue StandardError => error
+  errors << "#{path}: cannot inspect image metadata (#{error.message})"
 end
 
 def validate_permalink(path, data, errors)
@@ -190,12 +246,20 @@ end
 
 documents["events"].each do |file, data|
   path = file.relative_path_from(ROOT).to_s
-  require_fields(path, data, %w[layout event_id title summary start_date format event_status published], errors)
+  require_fields(
+    path, data,
+    %w[layout event_id title summary start_date format event_status occurrence_status published],
+    errors
+  )
   errors << "#{path}: layout must be event" unless data["layout"] == "event"
   validate_text(path, data, %w[event_id title summary], errors)
   validate_boolean(path, data, "published", errors)
   validate_enum(path, data["format"], "format", EVENT_FORMATS, errors)
   validate_enum(path, data["event_status"], "event_status", EVENT_STATUSES, errors)
+  validate_enum(
+    path, data["occurrence_status"], "occurrence_status",
+    EVENT_OCCURRENCE_STATUSES, errors
+  )
   validate_permalink(path, data, errors)
   validate_redirects(path, data, errors)
   validate_url_pair(path, data, "source", "source_label", errors)
@@ -311,6 +375,106 @@ documents["resources"].each do |file, data|
   end
   if data["download_path"]
     validate_local_file(path, data["download_path"], "download_path", errors)
+  end
+end
+
+media_path = ROOT.join("_data/media.yml")
+media_data = Psych.safe_load_file(media_path, permitted_classes: [Date, Time], aliases: true)
+media_items = media_data.is_a?(Hash) ? media_data["items"] : nil
+unless media_items.is_a?(Array)
+  errors << "_data/media.yml: items must be a list"
+  media_items = []
+end
+
+ledger_paths = []
+media_items.each_with_index do |item, index|
+  path = "_data/media.yml item #{index + 1}"
+  unless item.is_a?(Hash)
+    errors << "#{path}: must be a mapping"
+    next
+  end
+  require_fields(
+    path, item,
+    %w[path event_id source_page source_url original_format derivative authorisation],
+    errors
+  )
+  validate_local_file(path, item["path"], "path", errors)
+  %w[source_page source_url].each do |field|
+    errors << "#{path}: #{field} must be an absolute HTTP(S) URL" unless valid_http_url?(item[field])
+  end
+  %w[derivative authorisation].each do |field|
+    unless item[field].is_a?(String) && !item[field].strip.empty?
+      errors << "#{path}: #{field} must be a non-empty string"
+    end
+  end
+  errors << "#{path}: unknown event_id #{item['event_id'].inspect}" unless event_ids.key?(item["event_id"])
+  errors << "#{path}: original_format must be PNG, JPEG, or HEIC" unless %w[PNG JPEG HEIC].include?(item["original_format"])
+  if safe_local_path?(item["path"])
+    target = ROOT.join(item["path"].sub(%r{\A/}, "")).cleanpath
+    if target.file? && %w[.jpg .jpeg].include?(target.extname.downcase)
+      begin
+        image = EXIFR::JPEG.new(target.to_s)
+        if image.exif? || image.gps
+          errors << "#{path}: published JPEG must not contain EXIF or GPS metadata"
+        end
+      rescue StandardError => error
+        errors << "#{path}: cannot inspect JPEG metadata (#{error.message})"
+      end
+    elsif target.file? && target.extname.downcase == ".png"
+      begin
+        metadata_chunks = png_chunk_types(target) & %w[eXIf iTXt tEXt zTXt]
+        unless metadata_chunks.empty?
+          errors << "#{path}: published PNG must not contain EXIF, XMP, IPTC, or text metadata"
+        end
+      rescue StandardError => error
+        errors << "#{path}: cannot inspect PNG metadata (#{error.message})"
+      end
+    end
+  end
+  ledger_paths << item["path"]
+end
+errors << "_data/media.yml: duplicate local media paths" unless ledger_paths.uniq.length == ledger_paths.length
+
+local_media_paths = ROOT.join("assets/images/events").glob("**/*").select(&:file?).map do |file|
+  "/#{file.relative_path_from(ROOT)}"
+end.sort
+missing_ledger = local_media_paths - ledger_paths
+stale_ledger = ledger_paths - local_media_paths
+errors << "_data/media.yml: missing ledger entries for #{missing_ledger.join(', ')}" unless missing_ledger.empty?
+errors << "_data/media.yml: ledger paths without files: #{stale_ledger.join(', ')}" unless stale_ledger.empty?
+
+content_files = %w[_posts _events].flat_map do |directory|
+  ROOT.join(directory).glob("**/*.{md,markdown,html}")
+end
+content_files.each do |file|
+  file.read.scan(/\{%\s*include\s+event-figure\.html\s+(.+?)%\}/m).each do |match|
+    attributes = match.first.scan(/([a-z_]+)="([^"]*)"/).to_h
+    source = attributes["src"]
+    path = file.relative_path_from(ROOT).to_s
+    unless source && attributes["alt"] && attributes["width"] && attributes["height"]
+      errors << "#{path}: event figures require src, alt, width, and height"
+      next
+    end
+    unless safe_local_path?(source)
+      errors << "#{path}: event figure src must be a safe local path"
+      next
+    end
+
+    target = ROOT.join(source.sub(%r{\A/}, "")).cleanpath
+    unless target.file?
+      errors << "#{path}: event figure does not exist: #{source}"
+      next
+    end
+    begin
+      actual_width, actual_height = image_dimensions(target)
+      declared = [Integer(attributes["width"]), Integer(attributes["height"])]
+      unless declared == [actual_width, actual_height]
+        errors << "#{path}: event figure #{source} declares #{declared.join('x')}, " \
+                  "but the image is #{actual_width}x#{actual_height}"
+      end
+    rescue ArgumentError, StandardError => error
+      errors << "#{path}: cannot inspect event figure #{source} (#{error.message})"
+    end
   end
 end
 

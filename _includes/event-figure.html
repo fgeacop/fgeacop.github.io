@@ -1,0 +1,9 @@
+<figure class="event-figure">
+  <img src="{{ include.src | relative_url }}"
+       alt="{{ include.alt | escape }}"
+       width="{{ include.width }}"
+       height="{{ include.height }}"
+       loading="{{ include.loading | default: 'lazy' }}"
+       decoding="async">
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>

@@ -1,6 +1,183 @@
 review_status:
   human_review_required: false
   note: >-
-    No media is currently published. Add media only after provenance,
-    permission, credits, and reuse terms have been reviewed.
-items: []
+    The site owner states that they own the DigiSAS content and authorised its
+    permanent migration, including event photographs. This records content
+    reuse authorisation only and makes no claim to third-party trademarks.
+
+items:
+  - path: /assets/images/events/fgea-2024-q1-symposium/published-agenda.png
+    event_id: fgea-2024-q1-symposium
+    source_page: https://www.digisaslab.org/blog/2024/03/28/fgea-cop-2024-q1-symposium/
+    source_url: "https://www.digisaslab.org/wp-content/uploads/2024/06/Screenshot-2024-06-12-at-2.33.31%E2%80%AFPM.png"
+    original_format: PNG
+    derivative: Metadata-free PNG retained at 730x467.
+    authorisation: User-owned DigiSAS content; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2024-q2-symposium/symposium-banner.png
+    event_id: fgea-2024-q2-symposium
+    source_page: https://www.digisaslab.org/blog/2024/06/12/fgea-cop-2024-q2-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2024/06/Future-Generation-Enterprise-Architecture-Symposium-2024-Q2.png
+    original_format: PNG
+    derivative: Metadata-free PNG retained at 960x540.
+    authorisation: User-owned DigiSAS content; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2024-q3-symposium/published-agenda.png
+    event_id: fgea-2024-q3-symposium
+    source_page: https://www.digisaslab.org/blog/2024/08/26/fgea-cop-2024-q3-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2024/09/Picture-1.png
+    original_format: PNG
+    derivative: Optimised from 3694x1920 to metadata-free PNG at 2000x1039.
+    authorisation: User-owned DigiSAS content; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2024-q4-symposium/published-agenda.png
+    event_id: fgea-2024-q4-symposium
+    source_page: https://www.digisaslab.org/blog/2024/09/18/fgea-cop-2024-q4-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2024/12/q4-agenda.png
+    original_format: PNG
+    derivative: Optimised from 3694x2099 to metadata-free PNG at 2000x1136.
+    authorisation: User-owned DigiSAS content; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2024-q4-symposium/symposium-photo-1.jpg
+    event_id: fgea-2024-q4-symposium
+    source_page: https://www.digisaslab.org/blog/2024/09/18/fgea-cop-2024-q4-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2024/12/IMG_2415.heic
+    original_format: HEIC
+    derivative: Converted from HEIC to metadata-free JPEG with orientation baked into the pixels; 1600x826, 279095 bytes.
+    authorisation: User-owned DigiSAS content and event photos; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2024-q4-symposium/symposium-photo-2.jpg
+    event_id: fgea-2024-q4-symposium
+    source_page: https://www.digisaslab.org/blog/2024/09/18/fgea-cop-2024-q4-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2024/12/IMG_2385.heic
+    original_format: HEIC
+    derivative: Converted from HEIC to metadata-free JPEG with orientation baked into the pixels; 1200x1600, 331263 bytes.
+    authorisation: User-owned DigiSAS content and event photos; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2024-q4-symposium/symposium-photo-3.jpg
+    event_id: fgea-2024-q4-symposium
+    source_page: https://www.digisaslab.org/blog/2024/09/18/fgea-cop-2024-q4-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2024/12/IMG_2390.heic
+    original_format: HEIC
+    derivative: Converted from HEIC to metadata-free JPEG with orientation baked into the pixels; 1600x1200, 324049 bytes.
+    authorisation: User-owned DigiSAS content and event photos; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2024-q4-symposium/symposium-photo-4.jpg
+    event_id: fgea-2024-q4-symposium
+    source_page: https://www.digisaslab.org/blog/2024/09/18/fgea-cop-2024-q4-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2024/12/IMG_2401.heic
+    original_format: HEIC
+    derivative: Converted from HEIC to metadata-free JPEG with orientation baked into the pixels; 1600x1200, 338584 bytes.
+    authorisation: User-owned DigiSAS content and event photos; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2024-q4-symposium/symposium-photo-5.jpg
+    event_id: fgea-2024-q4-symposium
+    source_page: https://www.digisaslab.org/blog/2024/09/18/fgea-cop-2024-q4-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2024/12/IMG_2404.heic
+    original_format: HEIC
+    derivative: Converted from HEIC to metadata-free JPEG with orientation baked into the pixels; 1600x932, 366519 bytes.
+    authorisation: User-owned DigiSAS content and event photos; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2024-q4-symposium/symposium-photo-6.jpg
+    event_id: fgea-2024-q4-symposium
+    source_page: https://www.digisaslab.org/blog/2024/09/18/fgea-cop-2024-q4-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2024/12/IMG_2409.heic
+    original_format: HEIC
+    derivative: Converted from HEIC to metadata-free JPEG with orientation baked into the pixels; 1600x1173, 329419 bytes.
+    authorisation: User-owned DigiSAS content and event photos; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2025-q1-symposium/published-agenda.png
+    event_id: fgea-2025-q1-symposium
+    source_page: https://www.digisaslab.org/blog/2025/03/10/fgea-cop-2025-q1-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2025/03/Picture-1-2.png
+    original_format: PNG
+    derivative: Optimised from 3694x1613 to metadata-free PNG at 2000x873.
+    authorisation: User-owned DigiSAS content; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2025-q2-symposium/published-agenda.png
+    event_id: fgea-2025-q2-symposium
+    source_page: https://www.digisaslab.org/blog/2025/06/02/fgea-cop-2025-q2-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2025/06/Picture-1.png
+    original_format: PNG
+    derivative: Optimised from 3694x1723 to metadata-free PNG at 2000x933.
+    authorisation: User-owned DigiSAS content; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2025-q2-symposium/symposium-photo-1.jpg
+    event_id: fgea-2025-q2-symposium
+    source_page: https://www.digisaslab.org/blog/2025/06/02/fgea-cop-2025-q2-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2025/07/IMG_4672.heic
+    original_format: HEIC
+    derivative: Converted from HEIC to metadata-free JPEG with orientation baked into the pixels; 1600x1180, 324991 bytes.
+    authorisation: User-owned DigiSAS content and event photos; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2025-q2-symposium/symposium-photo-2.jpg
+    event_id: fgea-2025-q2-symposium
+    source_page: https://www.digisaslab.org/blog/2025/06/02/fgea-cop-2025-q2-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2025/07/IMG_4663.heic
+    original_format: HEIC
+    derivative: Converted from HEIC to metadata-free JPEG with orientation baked into the pixels; 1600x1200, 369066 bytes.
+    authorisation: User-owned DigiSAS content and event photos; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2025-q2-symposium/symposium-photo-3.jpg
+    event_id: fgea-2025-q2-symposium
+    source_page: https://www.digisaslab.org/blog/2025/06/02/fgea-cop-2025-q2-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2025/07/Image.jpeg
+    original_format: JPEG
+    derivative: Re-encoded as metadata-free JPEG; 800x600, 88091 bytes.
+    authorisation: User-owned DigiSAS content and event photos; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2025-q3-symposium/participants.jpg
+    event_id: fgea-2025-q3-symposium
+    source_page: https://www.digisaslab.org/blog/2025/08/15/fgea-cop-2025-q3-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2025/08/FGEA-CoP-Q3-Group-Photo.jpeg
+    original_format: JPEG
+    derivative: Optimised from 5712x4284 to metadata-free JPEG at 1600x1200; 408200 bytes.
+    authorisation: User-owned DigiSAS content and event photos; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2025-q3-symposium/published-agenda.png
+    event_id: fgea-2025-q3-symposium
+    source_page: https://www.digisaslab.org/blog/2025/08/15/fgea-cop-2025-q3-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2025/08/Q3-Agenda.png
+    original_format: PNG
+    derivative: Optimised from 2852x1226 to metadata-free PNG at 2000x859.
+    authorisation: User-owned DigiSAS content; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2025-q3-symposium/symposium-announcement.png
+    event_id: fgea-2025-q3-symposium
+    source_page: https://www.digisaslab.org/blog/2025/08/15/fgea-cop-2025-q3-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2025/08/image-10.png
+    original_format: PNG
+    derivative: Optimised from 2020x1136 to metadata-free PNG at 1600x900.
+    authorisation: User-owned DigiSAS content; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2025-q4-symposium/participants.jpg
+    event_id: fgea-2025-q4-symposium
+    source_page: https://www.digisaslab.org/blog/2025/11/16/fgea-cop-2025-q4-symposium/
+    source_url: https://www.digisaslab.org/wp-content/uploads/2025/12/IMG_0269.jpg
+    original_format: JPEG
+    derivative: Optimised from 4936x3702 to metadata-free JPEG at 1600x1200; 286391 bytes.
+    authorisation: User-owned DigiSAS content and event photos; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2025-q4-symposium/published-agenda.png
+    event_id: fgea-2025-q4-symposium
+    source_page: https://www.digisaslab.org/blog/2025/11/16/fgea-cop-2025-q4-symposium/
+    source_url: "https://www.digisaslab.org/wp-content/uploads/2025/11/Screenshot-2025-11-28-at-3.06.56%E2%80%AFpm.png"
+    original_format: PNG
+    derivative: Optimised from 2518x1228 to metadata-free PNG at 2000x975.
+    authorisation: User-owned DigiSAS content; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2026-q1-symposium/published-agenda.png
+    event_id: fgea-2026-q1-symposium
+    source_page: https://www.digisaslab.org/blog/2026/02/15/fgea-cop-2026-q1-symposium/
+    source_url: "https://www.digisaslab.org/wp-content/uploads/2026/03/Screenshot-2026-03-19-at-3.42.02%E2%80%AFpm.png"
+    original_format: PNG
+    derivative: Metadata-free PNG retained at 1544x656.
+    authorisation: User-owned DigiSAS content; permanent migration authorised.
+
+  - path: /assets/images/events/fgea-2026-q2-symposium/published-agenda.png
+    event_id: fgea-2026-q2-symposium
+    source_page: https://www.digisaslab.org/blog/2026/05/25/fgea-cop-2026-q2-symposium/
+    source_url: "https://www.digisaslab.org/wp-content/uploads/2026/06/Screenshot-2026-06-22-at-11.55.46%E2%80%AFam.png"
+    original_format: PNG
+    derivative: Metadata-free PNG retained at 1808x768.
+    authorisation: User-owned DigiSAS content; permanent migration authorised.

@@ -18,12 +18,17 @@ files.
 - `_plugins/event_collections.rb` produces predictable upcoming, past, and
   recent activity collections in the `Australia/Sydney` timezone.
 - `_data/` holds organisation, navigation, people, community, and media data.
+- `_data/media.yml` is the provenance ledger for every migrated local image.
 - Sass in `_sass/` and `assets/css/main.scss` produces the site stylesheet.
 - `_scripts/validate_content.rb` checks the source content contract before a
   build.
 
 Internal links use Jekyll's `relative_url` or `absolute_url` filters so the
 site remains portable between root and project-path deployments.
+
+Event media is stored under `assets/images/events/<event-id>/`. Historical
+DigiSAS material retains its canonical source URL and source status; an elapsed
+event date alone is never treated as evidence that an event occurred.
 
 ## Prerequisites and setup
 

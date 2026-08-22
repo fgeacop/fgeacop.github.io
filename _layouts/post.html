@@ -17,6 +17,9 @@ layout: default
   <div class="section">
     <div class="container article-layout">
       <div class="prose">
+        {% if page.image %}
+          {% include event-figure.html src=page.image alt=page.image_alt width=page.image_width height=page.image_height caption=page.image_caption loading="eager" %}
+        {% endif %}
         {{ content }}
         <a class="back-link" href="{{ '/news/' | relative_url }}"><span aria-hidden="true">←</span> Back to news</a>
       </div>

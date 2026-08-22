@@ -15,12 +15,15 @@ layout: default
     <div class="container article-layout">
       <div class="prose">{{ content }}</div>
       <aside class="detail-panel" aria-label="Event details">
+        {% assign related_post = site.posts | where: "event_id", page.event_id | first %}
         {% if page.start_date %}<p><strong>Date</strong><br><time datetime="{{ page.start_iso | default: page.start_date | date_to_xmlschema }}">{{ page.start_date | date: "%A, %-d %B %Y" }}</time>{% if page.end_date and page.end_date != page.start_date %} to <time datetime="{{ page.end_iso | default: page.end_date | date_to_xmlschema }}">{{ page.end_date | date: "%A, %-d %B %Y" }}</time>{% endif %}</p>{% endif %}
         {% if page.start_time %}<p><strong>Time</strong><br>{{ page.start_time }}{% if page.end_time %}–{{ page.end_time }}{% endif %}{% if page.timezone %} {{ page.timezone }}{% endif %}</p>{% endif %}
         {% if page.format %}<p><strong>Format</strong><br>{{ page.format | replace: "-", " " | capitalize }}</p>{% endif %}
-        {% if page.event_status %}<p><strong>Status</strong><br>{{ page.event_status | capitalize }}</p>{% endif %}
+        {% if page.event_status %}<p><strong>Schedule status</strong><br>{{ page.event_status | capitalize }}</p>{% endif %}
+        {% if page.occurrence_status %}<p><strong>Source record</strong><br>{% if page.occurrence_status == "occurred" %}Occurrence confirmed{% elsif page.occurrence_status == "unconfirmed" %}Occurrence not confirmed{% else %}Scheduled{% endif %}</p>{% endif %}
         {% if page.venue %}<p><strong>Location</strong><br>{{ page.venue }}</p>{% elsif page.location %}<p><strong>Location</strong><br>{{ page.location.name | default: page.location }}</p>{% endif %}
         {% if page.registration_url %}<p><a class="button button-primary" href="{{ page.registration_url }}" rel="noopener">Registration<span class="sr-only"> for {{ page.title }}</span></a></p>{% endif %}
+        {% if related_post %}<p><a href="{{ related_post.url | relative_url }}">Read the related news record</a></p>{% endif %}
         {% if page.source %}<p><a href="{{ page.source }}" rel="noopener">{{ page.source_label | default: "Event source" }} <span aria-hidden="true">↗</span></a></p>{% endif %}
       </aside>
     </div>

@@ -361,6 +361,34 @@
   margin-block: 2rem;
 }
 
+.event-figure {
+  margin: 2rem 0;
+}
+
+.event-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border-radius: var(--radius);
+}
+
+.event-figure figcaption {
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.event-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.event-gallery .event-figure {
+  margin: 0;
+}
+
 .article-aside,
 .detail-panel {
   align-self: start;
@@ -382,6 +410,10 @@
 }
 
 @media (max-width: 45rem) {
+  .event-gallery {
+    grid-template-columns: 1fr;
+  }
+
   .person-card {
     grid-template-columns: 1fr;
   }

@@ -39,3 +39,6 @@ permalink: /about/
 {% for person in site.data.people.advisory_committee_chairs %}
 - **{{ person.name }}**, {{ person.sector }}, {{ person.affiliation }}
 {% endfor %}
+
+The community purpose and structure are preserved from the
+[DigiSAS Lab FGEA CoP overview](https://www.digisaslab.org/fgea-cop/).

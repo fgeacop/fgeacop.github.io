@@ -1,7 +1,7 @@
 ---
 layout: page
 title: FGEA CoP Events
-description: Upcoming and past symposiums from the Future Generation Enterprise Architecture Community of Practice.
+description: Upcoming symposiums and historical event records from the Future Generation Enterprise Architecture Community of Practice.
 permalink: /events/
 ---
 
@@ -21,16 +21,16 @@ permalink: /events/
 No upcoming events have been published. [Contact FGEA CoP]({{ '/contact/' | relative_url }}) to express interest in future symposiums.
 {% endif %}
 
-## Past events
+## Historical event records
 
 {% if site.past_events.size > 0 %}
 {% for event in site.past_events %}
 ### [{{ event.title }}]({{ event.url | relative_url }})
 
-{{ event.start_date | date: "%-d %B %Y" }} · {{ event.format | replace: "-", " " | capitalize }}
+{{ event.start_date | date: "%-d %B %Y" }} · {{ event.format | replace: "-", " " | capitalize }} · {% if event.occurrence_status == "occurred" %}Occurrence confirmed by source{% else %}Occurrence not confirmed by source{% endif %}
 
 {{ event.summary }}
 {% endfor %}
 {% else %}
-No past events have been published.
+No historical event records have been published.
 {% endif %}

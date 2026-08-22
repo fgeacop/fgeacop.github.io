@@ -26,6 +26,7 @@ GEM
       ffi (>= 1.15.0)
       logger
     eventmachine (1.2.7)
+    exifr (1.4.1)
     ffi (1.17.4)
     ffi (1.17.4-aarch64-linux-gnu)
     ffi (1.17.4-aarch64-linux-musl)
@@ -232,6 +233,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  exifr (= 1.4.1)
   html-proofer (= 5.2.2)
   jekyll (= 4.4.1)
   jekyll-feed (= 0.17.0)

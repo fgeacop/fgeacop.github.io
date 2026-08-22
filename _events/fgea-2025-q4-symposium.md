@@ -10,9 +10,10 @@ end_time: "13:00"
 timezone: Australia/Sydney
 format: hybrid
 event_status: confirmed
+occurrence_status: occurred
 venue: University of Technology Sydney and online
 source: https://www.digisaslab.org/blog/2025/11/16/fgea-cop-2025-q4-symposium/
-source_label: DigiSAS Lab announcement
+source_label: Original DigiSAS Lab post
 featured: false
 published: true
 topics: []
@@ -20,5 +21,3 @@ permalink: /events/fgea-2025-q4-symposium/
 ---
 
 The source records this symposium as held on 4 December 2025. It began with morning tea at 9:30 am and concluded at approximately 1:00 pm. Registration was by invitation.
-
-[View the DigiSAS Lab announcement]({{ page.source }}).
