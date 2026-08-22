@@ -19,4 +19,4 @@ topics: []
 permalink: /events/fgea-2026-q1-symposium/
 ---
 
-This event was scheduled online for Thursday 26 March 2026, from 10:00 am to 12:30 pm. Registration was by invitation. The source does not establish here whether the event took place.
+This event was scheduled online for Thursday 26 March 2026, from 10:00 am to 12:30 pm. Registration was by invitation.

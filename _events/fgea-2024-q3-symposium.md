@@ -20,4 +20,4 @@ topics: []
 permalink: /events/fgea-2024-q3-symposium/
 ---
 
-The source announced this hybrid symposium for 26 September 2024. Registration was by invitation. It does not explicitly report that the event took place.
+This hybrid symposium was scheduled for 26 September 2024. Registration was by invitation.

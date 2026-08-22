@@ -30,5 +30,3 @@ The FGEA CoP 2026 Q1 Symposium was scheduled as an online event on Thursday 26 M
 - **11:20:** “Semantic Layer for Enterprise Architecture”, Dr Madhushi Bandara, University of Technology Sydney.
 - **11:50:** Short break and changeover.
 - **12:00:** “Semantic Search with LLM Embeddings: Beyond Keywords to Meaning”, Dr Chong Teck Ng, DJCS; chaired by Dr Madhushi Bandara.
-
-*This historical announcement and agenda have been migrated from the [original DigiSAS Lab announcement]({{ page.source_url }}). The source does not explicitly report that the event took place.*

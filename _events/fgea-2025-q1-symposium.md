@@ -19,4 +19,4 @@ topics: []
 permalink: /events/fgea-2025-q1-symposium/
 ---
 
-The source announced this fully online symposium for 27 March 2025. Registration was by invitation. It does not explicitly report that the event took place.
+This fully online symposium was scheduled for 27 March 2025. Registration was by invitation.

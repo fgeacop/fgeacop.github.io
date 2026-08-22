@@ -17,7 +17,7 @@ image_height: 873
 image_caption: Published agenda for the 2025 Q1 symposium.
 ---
 
-The FGEA CoP Q1 Symposium was announced as a fully online event for Thursday 27 March 2025, from 10:00 am to 12:30 pm. Registration was by invitation. The source remains prospective and does not explicitly report that the event took place.
+The FGEA CoP Q1 Symposium was announced as a fully online event for Thursday 27 March 2025, from 10:00 am to 12:30 pm. Registration was by invitation.
 
 ## Published agenda
 
@@ -28,5 +28,3 @@ The FGEA CoP Q1 Symposium was announced as a fully online event for Thursday 27 
 - **11:20:** Conversation on AI strategy and architecture acceleration, with Professor Asif Gill, Dr Christine Stepheson, and Alan Hsiao.
 - **11:50:** Short break and changeover.
 - **12:00:** “How Can We Architect Gen-AI? Strategies, Capabilities & Governance”, Conor Farrell, APAC Product Consultant, Avolution; chaired by Darryl Carr, HCA Advisory.
-
-*This historical announcement and agenda have been migrated from the [original DigiSAS Lab announcement]({{ page.source_url }}).*

@@ -20,4 +20,4 @@ topics: []
 permalink: /events/fgea-2024-q2-symposium/
 ---
 
-The source records this symposium as successfully held on 27 June 2024. Registration was by invitation.
+The symposium was successfully held on 27 June 2024. Registration was by invitation.

@@ -17,5 +17,3 @@ The DigiSAS Lab at the School of Computer Science, University of Technology Sydn
 Its theme was **“Architecting Intelligent Digital Government & Higher Education Ecosystems in the Age of Digital, Data & AI”**. The free event was for invited participants working in government, higher education, and digital ecosystems supporting their services.
 
 The original post thanked the invited experts and thought leaders for their talks and panel discussions, which explored a roadmap for enterprise architecture practice in the context of digital, data, and AI.
-
-*This historical record has been migrated from the [original DigiSAS Lab post]({{ page.source_url }}).*

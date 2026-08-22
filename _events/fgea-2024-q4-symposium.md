@@ -20,4 +20,4 @@ topics: []
 permalink: /events/fgea-2024-q4-symposium/
 ---
 
-The source records this symposium as having concluded successfully on 12 December 2024. Registration was by invitation.
+The symposium concluded successfully on 12 December 2024. Registration was by invitation.

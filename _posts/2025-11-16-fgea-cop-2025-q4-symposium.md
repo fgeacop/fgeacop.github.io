@@ -32,5 +32,3 @@ The FGEA CoP Q4 Symposium was successfully held on Thursday 4 December 2025 as a
 - **12:00:** “Advances in Optical Communication Systems: 2025 John Tyndall Award Lecture”, Professor Masatoshi Suzuki, Chitose Institute of Science and Technology; chaired by Professor Asif Gill.
 
 {% include event-figure.html src="/assets/images/events/fgea-2025-q4-symposium/published-agenda.png" alt="Published agenda for the FGEA CoP 2025 Q4 Symposium" width="2000" height="975" caption="Published agenda for the 2025 Q4 symposium." %}
-
-*This historical record, agenda, and photography have been migrated from the [original DigiSAS Lab post]({{ page.source_url }}).*

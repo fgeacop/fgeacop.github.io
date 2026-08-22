@@ -42,5 +42,3 @@ The FGEA CoP Q4 Symposium concluded successfully on Thursday 12 December 2024. T
 - **12:30:** Networking with a light lunch for in-person guests.
 
 {% include event-figure.html src="/assets/images/events/fgea-2024-q4-symposium/published-agenda.png" alt="Published agenda for the FGEA CoP 2024 Q4 Symposium" width="2000" height="1136" caption="Published agenda for the 2024 Q4 symposium." %}
-
-*This historical record, agenda, and photography have been migrated from the [original DigiSAS Lab post]({{ page.source_url }}).*

@@ -32,5 +32,3 @@ The FGEA CoP Q3 Symposium was successfully held on Thursday 25 September 2025 as
 {% include event-figure.html src="/assets/images/events/fgea-2025-q3-symposium/published-agenda.png" alt="Published agenda for the FGEA CoP 2025 Q3 Symposium" width="2000" height="859" caption="Published agenda for the 2025 Q3 symposium." %}
 
 {% include event-figure.html src="/assets/images/events/fgea-2025-q3-symposium/symposium-announcement.png" alt="Announcement for the FGEA CoP 2025 Q3 Symposium" width="1600" height="900" caption="Published announcement for the 2025 Q3 symposium." %}
-
-*This historical record, agenda, and photography have been migrated from the [original DigiSAS Lab post]({{ page.source_url }}).*

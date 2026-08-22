@@ -20,7 +20,6 @@ layout: default
         {% if page.start_time %}<p><strong>Time</strong><br>{{ page.start_time }}{% if page.end_time %}–{{ page.end_time }}{% endif %}{% if page.timezone %} {{ page.timezone }}{% endif %}</p>{% endif %}
         {% if page.format %}<p><strong>Format</strong><br>{{ page.format | replace: "-", " " | capitalize }}</p>{% endif %}
         {% if page.event_status %}<p><strong>Schedule status</strong><br>{{ page.event_status | capitalize }}</p>{% endif %}
-        {% if page.occurrence_status %}<p><strong>Source record</strong><br>{% if page.occurrence_status == "occurred" %}Occurrence confirmed{% elsif page.occurrence_status == "unconfirmed" %}Occurrence not confirmed{% else %}Scheduled{% endif %}</p>{% endif %}
         {% if page.venue %}<p><strong>Location</strong><br>{{ page.venue }}</p>{% elsif page.location %}<p><strong>Location</strong><br>{{ page.location.name | default: page.location }}</p>{% endif %}
         {% if page.registration_url %}<p><a class="button button-primary" href="{{ page.registration_url }}" rel="noopener">Registration<span class="sr-only"> for {{ page.title }}</span></a></p>{% endif %}
         {% if related_post %}<p><a href="{{ related_post.url | relative_url }}">Read the related news record</a></p>{% endif %}

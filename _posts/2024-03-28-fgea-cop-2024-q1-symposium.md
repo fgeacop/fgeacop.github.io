@@ -17,7 +17,7 @@ image_height: 467
 image_caption: Published agenda for the 2024 Q1 symposium.
 ---
 
-The FGEA CoP Q1 Symposium was announced as an online session for Thursday 28 March 2024. The source subsequently published the following agenda, but it does not explicitly report that the event took place.
+The FGEA CoP Q1 Symposium was announced as an online session for Thursday 28 March 2024, with the following agenda.
 
 ## Published agenda
 
@@ -29,5 +29,3 @@ The FGEA CoP Q1 Symposium was announced as an online session for Thursday 28 Mar
 - **11:35:** Short break and changeover.
 - **11:45:** “AI Governance”, Daniel Roelink, NSW Government Department of Customer Service.
 - **12:30:** End.
-
-*This historical announcement and agenda have been migrated from the [original DigiSAS Lab announcement]({{ page.source_url }}).*

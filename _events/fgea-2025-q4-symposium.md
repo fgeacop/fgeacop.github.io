@@ -20,4 +20,4 @@ topics: []
 permalink: /events/fgea-2025-q4-symposium/
 ---
 
-The source records this symposium as held on 4 December 2025. It began with morning tea at 9:30 am and concluded at approximately 1:00 pm. Registration was by invitation.
+The symposium was held on 4 December 2025. It began with morning tea at 9:30 am and concluded at approximately 1:00 pm. Registration was by invitation.

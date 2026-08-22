@@ -18,4 +18,4 @@ topics: []
 permalink: /events/fgea-2024-q1-symposium/
 ---
 
-The source announced an online symposium and later published its agenda. It does not explicitly report that the event took place.
+The online symposium was scheduled for 28 March 2024, and its agenda was published.

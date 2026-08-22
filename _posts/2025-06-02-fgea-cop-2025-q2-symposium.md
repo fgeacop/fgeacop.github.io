@@ -37,5 +37,3 @@ The FGEA CoP Q2 Symposium was successfully held on Thursday 26 June 2025 as a hy
 - **12:00:** “Scalable Enterprise AI Systems and Operating Model: Architecture Co-pilot”, Dr Terry Roach, Capsifi/Orbus; chaired by Darryl Carr, HCA Advisory, and Professor Asif Gill, UTS.
 
 {% include event-figure.html src="/assets/images/events/fgea-2025-q2-symposium/published-agenda.png" alt="Published agenda for the FGEA CoP 2025 Q2 Symposium" width="2000" height="933" caption="Published agenda for the 2025 Q2 symposium." %}
-
-*This historical record, agenda, and photography have been migrated from the [original DigiSAS Lab post]({{ page.source_url }}).*

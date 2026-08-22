@@ -27,7 +27,7 @@ No upcoming events have been published. [Contact FGEA CoP]({{ '/contact/' | rela
 {% for event in site.past_events %}
 ### [{{ event.title }}]({{ event.url | relative_url }})
 
-{{ event.start_date | date: "%-d %B %Y" }} · {{ event.format | replace: "-", " " | capitalize }} · {% if event.occurrence_status == "occurred" %}Occurrence confirmed by source{% else %}Occurrence not confirmed by source{% endif %}
+{{ event.start_date | date: "%-d %B %Y" }} · {{ event.format | replace: "-", " " | capitalize }}
 
 {{ event.summary }}
 {% endfor %}

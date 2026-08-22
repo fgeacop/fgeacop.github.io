@@ -33,5 +33,3 @@ The FGEA CoP Q2 Symposium was successfully held on Thursday 27 June 2024, from 9
 - **11:50:** Short break and changeover.
 - **12:00:** “Get on with responsible AI and trusted data”, Professor Liming Zhu, Research Director, Software and Computational Systems, CSIRO’s Data61.
 - **12:30–1:30:** Networking with a light lunch.
-
-*This historical record and agenda have been migrated from the [original DigiSAS Lab post]({{ page.source_url }}).*

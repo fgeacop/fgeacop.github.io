@@ -20,4 +20,4 @@ topics: []
 permalink: /events/fgea-2025-q2-symposium/
 ---
 
-The source records this symposium as successfully held on 26 June 2025. The day began with morning tea at 9:30 am and concluded at approximately 1:00 pm. Registration was by invitation.
+The symposium was successfully held on 26 June 2025. The day began with morning tea at 9:30 am and concluded at approximately 1:00 pm. Registration was by invitation.

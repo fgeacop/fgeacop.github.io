@@ -30,5 +30,3 @@ The FGEA CoP 2026 Q2 Symposium was scheduled as an online event on Thursday 25 J
 - **11:20:** “Architecture as Code: Applying architectural constraints in the era of AI Augmented software and digital product delivery”, Tim Stokes, Ticked.
 - **11:50:** Short break and changeover.
 - **12:00:** “AI Operating Model”, Dr Alan Thorogood, MIT CISR; chaired by Professor Asif Gill.
-
-*This historical announcement and agenda have been migrated from the [original DigiSAS Lab announcement]({{ page.source_url }}). The source does not explicitly report that the event took place.*

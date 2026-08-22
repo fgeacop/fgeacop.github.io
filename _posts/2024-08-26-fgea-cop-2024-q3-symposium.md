@@ -17,7 +17,7 @@ image_height: 1039
 image_caption: Published agenda for the 2024 Q3 symposium.
 ---
 
-The FGEA CoP Q3 Symposium was announced as a hybrid event at KPMG Sydney and online for Thursday 26 September 2024, from 9:30 am to 1:30 pm. Registration was by invitation. The source remains prospective and does not explicitly report that the event took place.
+The FGEA CoP Q3 Symposium was announced as a hybrid event at KPMG Sydney and online for Thursday 26 September 2024, from 9:30 am to 1:30 pm. Registration was by invitation.
 
 ## Published agenda
 
@@ -30,5 +30,3 @@ The FGEA CoP Q3 Symposium was announced as a hybrid event at KPMG Sydney and onl
 - **11:50:** Short break and changeover.
 - **12:00:** “The role of architects in delivering transformational outcomes”, Ray Ouyang, Director, Federal Government Technology Advisory Lead, KPMG; chaired by Janina Harper.
 - **12:30:** Networking with a light lunch for in-person guests.
-
-*This historical announcement and agenda have been migrated from the [original DigiSAS Lab announcement]({{ page.source_url }}).*
