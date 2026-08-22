@@ -1,0 +1,47 @@
+name: FGEA Community of Practice
+short_name: FGEA CoP
+full_name: Future Generation Enterprise Architecture Community of Practice
+tagline: Architecture for public good.
+description: >-
+  A community connecting enterprise architecture practitioners, researchers,
+  and thought leaders to shape trustworthy, human-centric AI, data, and digital
+  ecosystems.
+purpose:
+  heading: Building capability for a changing world
+  lead: >-
+    We create a trusted platform for exchanging innovative ideas and practical
+    approaches to modern enterprise architecture.
+  detail: >-
+    Participation is voluntary and by invitation, bringing together people with
+    deep relevance to the discipline and practice of enterprise architecture.
+    Through knowledge sharing, professional development, and capacity building,
+    we explore emerging technologies, their opportunities, and their risks.
+principles:
+  - name: Human-centred
+    description: >-
+      Designing AI, data, and digital ecosystems around people and public value.
+  - name: Trustworthy
+    description: >-
+      Advancing responsible approaches to technology, cyber, and AI adoption.
+  - name: Collaborative
+    description: >-
+      Connecting perspectives across sectors, disciplines, and geographies.
+symposiums:
+  frequency: Quarterly symposiums
+  description: >-
+    Our quarterly symposiums combine presentations with facilitated round-table
+    discussions, creating space to share current work and tackle emerging
+    challenges together.
+participation: Voluntary and by invitation
+email: FGEA@UTS.EDU.AU
+contact_subject: FGEA CoP expression of interest
+host: Based at the University of Technology Sydney
+based_at:
+  lab: DigiSAS Lab
+  school: School of Computer Science
+  institution: University of Technology Sydney
+external_links:
+  - title: DigiSAS Lab
+    url: https://www.digisaslab.org/
+  - title: FGEA CoP updates at DigiSAS Lab
+    url: https://www.digisaslab.org/category/fgea-cop/

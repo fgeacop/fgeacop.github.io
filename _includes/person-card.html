@@ -1,0 +1,11 @@
+{% assign person = include.person %}
+<article class="person-card" data-reveal>
+  {% if person.image %}
+    <img src="{{ person.image | relative_url }}" alt="{{ person.image_alt | default: person.name }}"{% if person.image_width %} width="{{ person.image_width }}"{% endif %}{% if person.image_height %} height="{{ person.image_height }}"{% endif %} loading="lazy" decoding="async">
+  {% endif %}
+  <div>
+    <h3>{{ person.name }}</h3>
+    {% if person.role %}<p class="person-role">{{ person.role }}</p>{% endif %}
+    {% if person.organization %}<p>{{ person.organization }}</p>{% endif %}
+  </div>
+</article>

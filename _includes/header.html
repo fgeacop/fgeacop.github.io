@@ -1,0 +1,24 @@
+{% assign organization = site.data.organization %}
+{% assign brand_name = organization.short_name | default: organization.name | default: site.title %}
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ brand_name }} home">
+      <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span>{{ brand_name }}</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+      {% for item in site.data.navigation.primary %}
+        {% assign item_url = item.url | default: item.link %}
+        {% assign item_label = item.title | default: item.label | default: item.name %}
+        {% assign item_path = item_url | relative_url %}
+        <a href="{{ item_path }}"{% if page.url == item_url or page.url == item_path %} aria-current="page"{% endif %}>{{ item_label }}</a>
+      {% endfor %}
+      {% if organization.email %}
+        <a class="nav-cta" href="mailto:{{ organization.email | uri_escape }}">Contact us</a>
+      {% endif %}
+    </nav>
+  </div>
+</header>

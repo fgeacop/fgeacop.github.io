@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+  <head>
+    {% include head.html %}
+  </head>
+  <body class="layout-{{ page.layout | default: 'default' }}{% if page.url == '/' %} is-home{% endif %}">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    {% include header.html %}
+    <main id="main-content" tabindex="-1">
+      {{ content }}
+    </main>
+    {% include footer.html %}
+    <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+  </body>
+</html>

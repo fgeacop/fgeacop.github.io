@@ -1,0 +1,24 @@
+{% unless page.url == "/" %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ '/' | relative_url }}">Home</a></li>
+    {% if page.collection %}
+      {% case page.collection %}
+        {% when "posts" %}
+          {% assign collection_url = "/news/" %}
+          {% assign collection_label = "News" %}
+        {% when "events" %}
+          {% assign collection_url = "/events/" %}
+          {% assign collection_label = "Events" %}
+        {% when "resources" %}
+          {% assign collection_url = "/resources/" %}
+          {% assign collection_label = "Resources" %}
+      {% endcase %}
+      {% if collection_url and page.url != collection_url %}
+        <li><a href="{{ collection_url | relative_url }}">{{ collection_label }}</a></li>
+      {% endif %}
+    {% endif %}
+    <li aria-current="page">{{ page.title }}</li>
+  </ol>
+</nav>
+{% endunless %}

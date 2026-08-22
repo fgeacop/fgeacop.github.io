@@ -1,0 +1,32 @@
+{% assign organization = site.data.organization %}
+{% assign canonical_url = page.url | absolute_url %}
+{% assign page_summary = page.summary | default: page.description %}
+{% assign organization_id = '/' | absolute_url | append: '#organization' %}
+{% if page.layout == "post" %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":{{ page.title | jsonify }},"url":{{ canonical_url | jsonify }},"mainEntityOfPage":{{ canonical_url | jsonify }}{% if page_summary %},"description":{{ page_summary | strip_html | jsonify }}{% endif %}{% if page.date %},"datePublished":{{ page.date | date_to_xmlschema | jsonify }}{% endif %}{% if page.updated %},"dateModified":{{ page.updated | date_to_xmlschema | jsonify }}{% endif %}{% if page.author %},"author":{"@type":"Person","name":{{ page.author | jsonify }}}{% else %},"author":{"@id":{{ organization_id | jsonify }}}{% endif %},"publisher":{"@id":{{ organization_id | jsonify }}}{% if page.image %},"image":{{ page.image | absolute_url | jsonify }}{% endif %}{% if page.source_url %},"sameAs":{{ page.source_url | jsonify }}{% endif %}}
+</script>
+{% elsif page.layout == "event" %}
+{% case page.format %}
+  {% when "online" %}{% assign attendance_mode = "https://schema.org/OnlineEventAttendanceMode" %}
+  {% when "in-person" %}{% assign attendance_mode = "https://schema.org/OfflineEventAttendanceMode" %}
+  {% when "hybrid" %}{% assign attendance_mode = "https://schema.org/MixedEventAttendanceMode" %}
+{% endcase %}
+{% case page.event_status %}
+  {% when "confirmed" %}{% assign schema_status = "https://schema.org/EventScheduled" %}
+  {% when "tentative" %}{% assign schema_status = "https://schema.org/EventScheduled" %}
+  {% when "postponed" %}{% assign schema_status = "https://schema.org/EventPostponed" %}
+  {% when "cancelled" %}{% assign schema_status = "https://schema.org/EventCancelled" %}
+{% endcase %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Event","name":{{ page.title | jsonify }},"url":{{ canonical_url | jsonify }}{% if page_summary %},"description":{{ page_summary | strip_html | jsonify }}{% endif %}{% if page.start_iso %},"startDate":{{ page.start_iso | jsonify }}{% elsif page.start_date %},"startDate":{{ page.start_date | date: "%Y-%m-%d" | jsonify }}{% endif %}{% if page.end_iso %},"endDate":{{ page.end_iso | jsonify }}{% endif %}{% if attendance_mode %},"eventAttendanceMode":{{ attendance_mode | jsonify }}{% endif %}{% if schema_status %},"eventStatus":{{ schema_status | jsonify }}{% endif %},"organizer":{"@id":{{ organization_id | jsonify }}}{% if page.venue %},"location":{"@type":"Place","name":{{ page.venue | jsonify }}}{% elsif page.location.name %},"location":{"@type":"Place","name":{{ page.location.name | jsonify }}{% if page.location.address %},"address":{{ page.location.address | jsonify }}{% endif %}}{% elsif page.location %},"location":{"@type":"Place","name":{{ page.location | jsonify }}}{% endif %}{% if page.source %},"sameAs":{{ page.source | jsonify }}{% endif %}}
+</script>
+{% elsif page.layout == "resource" %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CreativeWork","name":{{ page.title | jsonify }},"url":{{ canonical_url | jsonify }}{% if page_summary %},"description":{{ page_summary | strip_html | jsonify }}{% endif %}{% if page.author %},"author":{"@type":"Person","name":{{ page.author | jsonify }}}{% endif %}{% if page.published_date %},"datePublished":{{ page.published_date | date: "%Y-%m-%d" | jsonify }}{% endif %}{% if page.external_url %},"contentUrl":{{ page.external_url | jsonify }}{% elsif page.download_path %},"contentUrl":{{ page.download_path | absolute_url | jsonify }}{% endif %}{% if page.source_url %},"sameAs":{{ page.source_url | jsonify }}{% endif %}}
+</script>
+{% elsif page.url == "/" %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":{{ organization_id | jsonify }},"name":{{ organization.name | default: site.title | jsonify }},"url":{{ '/' | absolute_url | jsonify }}{% if organization.email %},"email":{{ organization.email | jsonify }}{% endif %}{% if organization.description %},"description":{{ organization.description | strip_html | jsonify }}{% endif %}},{"@type":"WebSite","@id":{{ '/' | absolute_url | append: '#website' | jsonify }},"name":{{ site.title | jsonify }},"url":{{ '/' | absolute_url | jsonify }},"description":{{ site.description | jsonify }},"publisher":{"@id":{{ organization_id | jsonify }}}}]}
+</script>
+{% endif %}

@@ -1,0 +1,40 @@
+sectors:
+  - name: Government
+    organisations:
+      - DTA
+      - DoHA
+      - Victorian Government
+      - DCS
+      - NDIS
+      - DSS
+      - Camden Council
+      - Home Affairs
+      - Revenue NSW
+      - RBA
+      - Government of Canada
+      - DPE
+      - ATO
+  - name: Higher education
+    organisations:
+      - University of Technology Sydney
+      - TIAA
+      - University of New South Wales
+      - Macquarie University
+  - name: Industry
+    organisations:
+      - KPMG
+      - HCA Advisory
+      - Microsoft
+      - Salesforce
+      - AWS
+      - Accenture
+      - Telstra
+      - Optus
+      - Capsifi
+      - Data Zoo
+      - DAMA Australia
+
+affiliate_chapters:
+  - European Union and United Kingdom
+  - Middle East
+  - North America

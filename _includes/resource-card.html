@@ -1,0 +1,11 @@
+{% assign item = include.resource %}
+{% assign item_summary = item.summary | default: item.description %}
+<article class="card resource-card" data-reveal>
+  <div class="card-content">
+    <p class="card-kicker">{{ item.resource_type | default: "Resource" }}</p>
+    {% if item.published_date %}<time datetime="{{ item.published_date | date: '%Y-%m-%d' }}">{{ item.published_date | date: "%-d %B %Y" }}</time>{% endif %}
+    <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+    {% if item_summary %}<p>{{ item_summary | strip_html | truncatewords: 28 }}</p>{% endif %}
+    <span class="read-more" aria-hidden="true">View resource →</span>
+  </div>
+</article>

@@ -1,0 +1,93 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--cream);
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+a {
+  color: var(--teal-dark);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration-thickness: 0.12em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 4px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: inherit;
+  font-family: var(--display);
+  line-height: 1.12;
+}
+
+h1 {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  letter-spacing: -0.055em;
+}
+
+h2 {
+  margin-bottom: 1.75rem;
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  letter-spacing: -0.045em;
+}
+
+h3 {
+  font-size: 1.35rem;
+}
+
+address {
+  font-style: normal;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+main:focus {
+  outline: none;
+}
+
+::selection {
+  color: var(--navy);
+  background: var(--teal);
+}

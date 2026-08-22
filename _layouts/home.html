@@ -1,0 +1,85 @@
+---
+layout: default
+---
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero-grid">
+    <div class="hero-copy" data-reveal>
+      {% if page.eyebrow %}<p class="eyebrow">{{ page.eyebrow }}</p>{% endif %}
+      <h1 id="hero-title">{{ page.hero_title | default: page.title }}</h1>
+      {% if page.hero_text or page.description %}
+        <p class="hero-lead">{{ page.hero_text | default: page.description }}</p>
+      {% endif %}
+      {% if page.primary_action.url or page.secondary_action.url %}
+        <div class="hero-actions">
+          {% if page.primary_action.url %}<a class="button button-primary" href="{{ page.primary_action.url | relative_url }}">{{ page.primary_action.label | default: 'Learn more' }} <span aria-hidden="true">→</span></a>{% endif %}
+          {% if page.secondary_action.url %}<a class="button button-link" href="{{ page.secondary_action.url | relative_url }}">{{ page.secondary_action.label | default: 'Explore' }}</a>{% endif %}
+        </div>
+      {% endif %}
+    </div>
+    <div class="hero-network" aria-hidden="true" data-reveal>
+      <span class="network-ring network-ring-one"></span>
+      <span class="network-ring network-ring-two"></span>
+      <span class="network-line network-line-one"></span>
+      <span class="network-line network-line-two"></span>
+      <span class="network-line network-line-three"></span>
+      <span class="network-core">FGEA<br><strong>CoP</strong></span>
+      <span class="network-node node-one">Government</span>
+      <span class="network-node node-two">Higher education</span>
+      <span class="network-node node-three">Industry</span>
+    </div>
+  </div>
+</section>
+
+{% if content != empty %}
+<div class="home-content">
+  <div class="section">
+    <div class="container prose">
+      {{ content }}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<section class="section section-tint" aria-labelledby="upcoming-events-title">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow dark">Events</p>
+      <h2 id="upcoming-events-title">Upcoming events</h2>
+    </div>
+    {% if site.upcoming_events.size > 0 %}
+      <div class="card-grid">
+        {% for event in site.upcoming_events limit: 3 %}
+          {% include event-card.html event=event %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="empty-state">There are no upcoming events at present. Please check back for future dates.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% assign news_posts = site.posts | where: "published", true | sort: "date" | reverse %}
+{% if news_posts.size > 0 %}
+<section class="section" aria-labelledby="latest-news-title">
+  <div class="container">
+    <div class="section-heading section-heading-row">
+      <div><p class="eyebrow dark">Latest news</p><h2 id="latest-news-title">From the community</h2></div>
+      <a class="text-link" href="{{ '/news/' | relative_url }}">View all news <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="card-grid">{% for post in news_posts limit: 3 %}{% include news-card.html post=post featured=forloop.first %}{% endfor %}</div>
+  </div>
+</section>
+{% endif %}
+
+{% assign resources = site.resources | where: "published", true | sort: "published_date" | reverse %}
+<section class="section section-tint" aria-labelledby="resources-title">
+  <div class="container">
+    <div class="section-heading"><p class="eyebrow dark">Knowledge</p><h2 id="resources-title">Resources</h2></div>
+    {% if resources.size > 0 %}
+      <div class="card-grid">{% for resource in resources limit: 3 %}{% include resource-card.html resource=resource %}{% endfor %}</div>
+    {% else %}
+      <p class="empty-state">Resources will be added here as they become available.</p>
+    {% endif %}
+  </div>
+</section>
+{% include structured-data.html %}

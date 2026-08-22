@@ -1,0 +1,43 @@
+leadership:
+  - name: Professor Asif Gill
+    role: Chair, FGEA CoP
+    affiliation: University of Technology Sydney
+  - name: Dr Madhushi Bandara
+    role: Convenor
+    affiliation: University of Technology Sydney
+
+advisory_panel:
+  - name: Professor Fethi Rabhi
+    affiliation: University of New South Wales
+  - name: Professor Erik Proper
+    affiliation: TU Wien
+  - name: Professor Ian Oppermann
+    affiliation: University of Technology Sydney
+  - name: Professor Robert Winter
+    affiliation: University of St. Gallen
+  - name: Professor Katina Michael
+    affiliation: University of Sydney
+  - name: Dr Zoran Milosevic
+    affiliation: Deontik
+  - name: Professor Liming Zhu
+    affiliation: Data61, CSIRO
+
+advisory_committee_chairs:
+  - name: Dr Vanessa Douglas-Savage
+    sector: Government
+    affiliation: DTA
+  - name: Dr Michelle Graham
+    sector: Government
+    affiliation: DoHA
+  - name: Dr Christine Stepheson
+    sector: Higher education
+    affiliation: UTS
+  - name: Margaret Codner
+    sector: Higher education
+    affiliation: UTS
+  - name: Dr Seyran Dehbokry
+    sector: Industry
+    affiliation: KPMG
+  - name: Darryl Carr
+    sector: Industry
+    affiliation: HCA Advisory

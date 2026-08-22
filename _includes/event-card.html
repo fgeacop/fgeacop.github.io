@@ -1,0 +1,18 @@
+{% assign item = include.event %}
+{% assign item_summary = item.summary | default: item.description %}
+<article class="card event-card" data-reveal>
+  <div class="card-content">
+    <p class="card-kicker">Event</p>
+    {% if item.start_date %}<time datetime="{{ item.start_iso | default: item.start_date | date_to_xmlschema }}">{{ item.start_date | date: "%-d %B %Y" }}</time>{% endif %}
+    <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+    <p class="card-meta">
+      {% if item.start_time %}{{ item.start_time }}{% if item.end_time %}–{{ item.end_time }}{% endif %}{% if item.timezone %} {{ item.timezone }}{% endif %} · {% endif %}
+      {{ item.format | replace: "-", " " | capitalize }} · {{ item.event_status | capitalize }}
+      {% if item.venue %} · {{ item.venue }}{% elsif item.location %} · {{ item.location.name | default: item.location }}{% endif %}
+    </p>
+    {% if item_summary %}<p>{{ item_summary | strip_html | truncatewords: 24 }}</p>{% endif %}
+    {% if item.registration_url %}<a class="card-secondary-link" href="{{ item.registration_url }}" rel="noopener">Registration <span aria-hidden="true">↗</span></a>{% endif %}
+    {% if item.source %}<a class="card-secondary-link" href="{{ item.source }}" rel="noopener">{{ item.source_label | default: "Source" }} <span aria-hidden="true">↗</span></a>{% endif %}
+    <span class="read-more" aria-hidden="true">View event →</span>
+  </div>
+</article>

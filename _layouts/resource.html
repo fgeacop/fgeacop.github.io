@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<article>
+  <header class="page-hero article-hero">
+    <div class="container">
+      {% include breadcrumb.html %}
+      <p class="eyebrow">Resource{% if page.resource_type %} · {{ page.resource_type }}{% endif %}</p>
+      <h1>{{ page.title }}</h1>
+      {% assign page_summary = page.summary | default: page.description %}
+      {% if page_summary %}<p>{{ page_summary }}</p>{% endif %}
+    </div>
+  </header>
+  <div class="section">
+    <div class="container article-layout">
+      <div class="prose">{{ content }}</div>
+      {% if page.author or page.published_date or page.external_url or page.download_path or page.source_url %}
+      <aside class="detail-panel" aria-label="Resource details">
+        {% if page.author %}<p><strong>Author</strong><br>{{ page.author }}</p>{% endif %}
+        {% if page.published_date %}<p><strong>Published</strong><br><time datetime="{{ page.published_date | date: '%Y-%m-%d' }}">{{ page.published_date | date: "%-d %B %Y" }}</time></p>{% endif %}
+        {% if page.external_url %}<p><a class="button button-primary" href="{{ page.external_url }}" rel="noopener">Access resource</a></p>{% endif %}
+        {% if page.download_path %}<p><a class="button button-primary" href="{{ page.download_path | relative_url }}" download>Download resource</a></p>{% endif %}
+        {% if page.source_url %}<p><a href="{{ page.source_url }}" rel="noopener">{{ page.source_label | default: "Resource source" }} <span aria-hidden="true">↗</span></a></p>{% endif %}
+      </aside>
+      {% endif %}
+    </div>
+  </div>
+</article>
+{% include structured-data.html %}

@@ -1,0 +1,27 @@
+{% assign organization = site.data.organization %}
+{% assign brand_name = organization.short_name | default: organization.name | default: site.title %}
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div>
+      <a class="brand footer-brand" href="{{ '/' | relative_url }}">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>{{ brand_name }}</span>
+      </a>
+      {% if organization.description %}<p>{{ organization.description }}</p>{% endif %}
+    </div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      {% for item in site.data.navigation.primary %}
+        {% assign item_url = item.url | default: item.link %}
+        <a href="{{ item_url | relative_url }}">{{ item.title | default: item.label | default: item.name }}</a>
+      {% endfor %}
+    </nav>
+    <div class="footer-contact">
+      {% if organization.email %}<a href="mailto:{{ organization.email | uri_escape }}">{{ organization.email }}</a>{% endif %}
+      {% if organization.address %}<address>{{ organization.address | newline_to_br }}</address>{% endif %}
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; {{ site.time | date: "%Y" }} {{ organization.name | default: site.title }}</span>
+    {% if organization.host %}<span>{{ organization.host }}</span>{% endif %}
+  </div>
+</footer>

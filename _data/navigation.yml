@@ -1,0 +1,15 @@
+primary:
+  - title: Home
+    url: /
+  - title: About
+    url: /about/
+  - title: Events
+    url: /events/
+  - title: News
+    url: /news/
+  - title: Resources
+    url: /resources/
+  - title: Community
+    url: /community/
+  - title: Contact / Join
+    url: /contact/

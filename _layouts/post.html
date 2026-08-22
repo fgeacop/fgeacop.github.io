@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<article>
+  <header class="page-hero article-hero">
+    <div class="container">
+      {% include breadcrumb.html %}
+      <p class="article-meta">
+        {% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>{% endif %}
+        {% if page.kind %}<span>{{ page.kind | capitalize }}</span>{% endif %}
+      </p>
+      <h1>{{ page.title }}</h1>
+      {% assign page_summary = page.summary | default: page.description %}
+      {% if page_summary %}<p>{{ page_summary }}</p>{% endif %}
+    </div>
+  </header>
+  <div class="section">
+    <div class="container article-layout">
+      <div class="prose">
+        {{ content }}
+        <a class="back-link" href="{{ '/news/' | relative_url }}"><span aria-hidden="true">←</span> Back to news</a>
+      </div>
+      {% assign linked_event = site.events | where: "event_id", page.event_id | first %}
+      {% if page.author or page.updated or page.source_url or linked_event %}
+      <aside class="article-aside" aria-label="Article details">
+        {% if page.author %}<p><strong>Author</strong><br>{{ page.author }}</p>{% endif %}
+        {% if page.updated %}<p><strong>Updated</strong><br><time datetime="{{ page.updated | date_to_xmlschema }}">{{ page.updated | date: "%-d %B %Y" }}</time></p>{% endif %}
+        {% if linked_event %}<p><a href="{{ linked_event.url | relative_url }}">View linked event</a></p>{% endif %}
+        {% if page.source_url %}<p><a href="{{ page.source_url }}" rel="noopener">{{ page.source_label | default: "Referenced source" }} <span aria-hidden="true">↗</span></a></p>{% endif %}
+      </aside>
+      {% endif %}
+    </div>
+  </div>
+</article>
+{% include structured-data.html %}

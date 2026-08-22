@@ -1,0 +1,36 @@
+title: FGEA Community of Practice
+description: Resources, events, and news from the FGEA Community of Practice.
+author:
+  name: FGEA Community of Practice
+url: "https://fgeacop.github.io"
+baseurl: "/fgea"
+timezone: Australia/Sydney
+future: false
+strict_front_matter: true
+
+permalink: /news/:year/:month/:day/:title/
+
+collections:
+  events:
+    output: true
+    permalink: /events/:name/
+  resources:
+    output: true
+    permalink: /resources/:name/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-redirect-from
+
+feed:
+  path: feed.xml
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - CONTRIBUTING.md
+  - vendor
+  - _scripts

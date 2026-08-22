@@ -1,34 +1,82 @@
-name: Deploy to GitHub Pages
+name: Validate and deploy Jekyll site
 
 on:
+  pull_request:
   push:
-    branches: ["main"]
+    branches: [main]
   workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+  schedule:
+    - cron: "17 14 * * *"
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
+        with:
+          bundler-cache: true
+
+      - name: Determine Pages base path
+        id: pages
+        shell: bash
+        run: |
+          repository_name="${GITHUB_REPOSITORY#*/}"
+          if [[ "${repository_name}" == "${GITHUB_REPOSITORY_OWNER}.github.io" ]]; then
+            echo "base_path=" >> "${GITHUB_OUTPUT}"
+          else
+            echo "base_path=/${repository_name}" >> "${GITHUB_OUTPUT}"
+          fi
+
+      - name: Validate source content
+        run: bundle exec ruby _scripts/validate_content.rb
+
+      - name: Build site
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build --strict_front_matter --trace --baseurl "${{ steps.pages.outputs.base_path }}"
+
+      - name: Validate generated site
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: |
+          if [[ -n "${BASE_PATH}" ]]; then
+            bundle exec htmlproofer ./_site --disable-external --swap-urls "^${BASE_PATH}/:/"
+          else
+            bundle exec htmlproofer ./_site --disable-external
+          fi
+
+      - name: Check external links
+        if: github.event_name == 'schedule'
+        continue-on-error: true
+        run: bundle exec htmlproofer ./_site --external-only
+
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: _site
+
   deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Upload site
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "."
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5
