@@ -2,7 +2,7 @@
 
 The production website for the Future Generation Enterprise Architecture
 Community of Practice. It is a static Jekyll 4 site published at
-<https://fgeacop.github.io/fgea/>.
+<https://fgeacop.github.io/>.
 
 The site has no analytics, cookies, forms, external CMS, search service, or
 runtime API. Content is reviewed in this repository and built into static
@@ -22,8 +22,8 @@ files.
 - `_scripts/validate_content.rb` checks the source content contract before a
   build.
 
-Internal links use Jekyll's `relative_url` or `absolute_url` filters. This
-allows both the current `/fgea` deployment and a future root deployment.
+Internal links use Jekyll's `relative_url` or `absolute_url` filters so the
+site remains portable between root and project-path deployments.
 
 ## Prerequisites and setup
 
@@ -40,27 +40,27 @@ bundle install
 
 ## Develop and validate
 
-Serve locally with the configured base path:
+Serve locally:
 
 ```sh
 bundle exec jekyll serve --livereload
 ```
 
-Open <http://127.0.0.1:4000/fgea/>.
+Open <http://127.0.0.1:4000/>.
 
 Run the source validator and the production build:
 
 ```sh
 bundle exec ruby _scripts/validate_content.rb
-JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter --trace --baseurl /fgea
-bundle exec htmlproofer ./_site --disable-external --swap-urls '^/fgea/:/'
+JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter --trace
+bundle exec htmlproofer ./_site --disable-external
 ```
 
-To simulate a future root deployment:
+To test a project-path deployment:
 
 ```sh
-JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter --trace --baseurl ''
-bundle exec htmlproofer ./_site --disable-external
+JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter --trace --baseurl /example
+bundle exec htmlproofer ./_site --disable-external --swap-urls '^/example/:/'
 ```
 
 `FGEA_TODAY=YYYY-MM-DD` may be supplied to make event grouping deterministic

@@ -9,8 +9,8 @@ Run these checks before requesting review:
 
 ```sh
 bundle exec ruby _scripts/validate_content.rb
-JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter --trace --baseurl /fgea
-bundle exec htmlproofer ./_site --disable-external --swap-urls '^/fgea/:/'
+JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter --trace
+bundle exec htmlproofer ./_site --disable-external
 ```
 
 ## News

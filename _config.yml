@@ -3,7 +3,7 @@ description: Resources, events, and news from the FGEA Community of Practice.
 author:
   name: FGEA Community of Practice
 url: "https://fgeacop.github.io"
-baseurl: "/fgea"
+baseurl: ""
 timezone: Australia/Sydney
 future: false
 strict_front_matter: true
