@@ -25,4 +25,5 @@ secondary_action:
   <h2>Quarterly symposiums</h2>
   <p>{{ site.data.organization.symposiums.description }}</p>
   <p><a href="{{ '/events/' | relative_url }}">Browse events</a></p>
+  <p><a href="{{ '/chapters/' | relative_url }}">Explore our regional chapters</a></p>
 </section>

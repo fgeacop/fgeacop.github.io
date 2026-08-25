@@ -5,6 +5,8 @@ primary:
     url: /about/
   - title: Events
     url: /events/
+  - title: Chapters
+    url: /chapters/
   - title: News
     url: /news/
   - title: Resources

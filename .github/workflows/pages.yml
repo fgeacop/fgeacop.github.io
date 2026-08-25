@@ -58,7 +58,7 @@ jobs:
       - name: Check external links
         if: github.event_name == 'schedule'
         continue-on-error: true
-        run: bundle exec htmlproofer ./_site --checks Links
+        run: bundle exec htmlproofer ./_site --checks Links --ignore-urls '/^https:\/\/fgeacop\.github\.io\//'
 
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'

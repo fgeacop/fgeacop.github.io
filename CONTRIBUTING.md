@@ -58,6 +58,7 @@ start_time: "10:00"
 end_time: "12:30"
 timezone: Australia/Sydney
 format: online
+host_chapter: asia-pacific
 event_status: confirmed
 occurrence_status: scheduled
 source: https://example.org/announcement
@@ -73,6 +74,11 @@ multi-day event. `format` is `online`, `in-person`, or `hybrid`. Use
 `occurrence_status` is `scheduled` for a future event, `occurred` when a
 reviewed source confirms delivery, or `unconfirmed` when a historical source
 records only the planned schedule.
+
+Use the optional `host_chapter` field when the regional host is confirmed. Its
+value must match a chapter `slug` in `_data/community.yml`, such as
+`asia-pacific` or `europe`. Event cards and detail pages display the chapter
+automatically.
 
 Include `venue`, `location`, or `registration_url` only when verified.
 `registration_url` must be an absolute HTTP(S) URL. Keep the source and its

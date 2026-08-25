@@ -244,6 +244,19 @@ unless valid_http_url?(canonical_url) && URI.parse(canonical_url).scheme == "htt
   errors << "_config.yml: url must be an absolute HTTPS canonical origin"
 end
 
+community_path = ROOT.join("_data/community.yml")
+community = Psych.safe_load_file(community_path, permitted_classes: [Date, Time], aliases: true)
+chapters = community.is_a?(Hash) ? community["chapters"] : nil
+chapter_slugs = Array(chapters).filter_map { |chapter| chapter["slug"] if chapter.is_a?(Hash) }
+if chapter_slugs.empty?
+  errors << "_data/community.yml: at least one chapter with a slug is required"
+elsif chapter_slugs.uniq.length != chapter_slugs.length
+  errors << "_data/community.yml: chapter slugs must be unique"
+end
+chapter_slugs.each do |slug|
+  errors << "_data/community.yml: chapter slug #{slug.inspect} must be lowercase and hyphenated" unless ID_PATTERN.match?(slug.to_s)
+end
+
 documents["events"].each do |file, data|
   path = file.relative_path_from(ROOT).to_s
   require_fields(
@@ -266,6 +279,9 @@ documents["events"].each do |file, data|
   validate_image(path, data, errors)
   if data["registration_url"] && !valid_http_url?(data["registration_url"])
     errors << "#{path}: registration_url must be an absolute HTTP(S) URL"
+  end
+  if data["host_chapter"] && !chapter_slugs.include?(data["host_chapter"])
+    errors << "#{path}: host_chapter #{data['host_chapter'].inspect} does not reference a chapter"
   end
 
   event_id = data["event_id"]

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: FGEA CoP Community
-description: Organisations and affiliate chapter regions represented in the FGEA Community of Practice.
+description: Organisations and regional chapters represented in the FGEA Community of Practice.
 permalink: /community/
 ---
 
@@ -15,10 +15,9 @@ Our advisory committees bring together organisations from the public sector, hig
 {% endfor %}
 {% endfor %}
 
-## Affiliate chapters
+## Regional chapters
 
-The community includes affiliate chapters in:
+FGEA CoP is developing a regional chapter network to support participation and
+shared symposium hosting across time zones.
 
-{% for region in site.data.community.affiliate_chapters %}
-- {{ region }}
-{% endfor %}
+[Explore FGEA CoP chapters]({{ '/chapters/' | relative_url }})

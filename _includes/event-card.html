@@ -1,5 +1,6 @@
 {% assign item = include.event %}
 {% assign item_summary = item.summary | default: item.description %}
+{% assign host_chapter = site.data.community.chapters | where: "slug", item.host_chapter | first %}
 <article class="card event-card" data-reveal>
   <div class="card-content">
     <p class="card-kicker">Event</p>
@@ -8,6 +9,7 @@
     <p class="card-meta">
       {% if item.start_time %}{{ item.start_time }}{% if item.end_time %}–{{ item.end_time }}{% endif %}{% if item.timezone %} {{ item.timezone }}{% endif %} · {% endif %}
       {{ item.format | replace: "-", " " | capitalize }} · {{ item.event_status | capitalize }}
+      {% if host_chapter %} · Hosted by {{ host_chapter.name }}{% endif %}
       {% if item.venue %} · {{ item.venue }}{% elsif item.location %} · {{ item.location.name | default: item.location }}{% endif %}
     </p>
     {% if item_summary %}<p>{{ item_summary | strip_html | truncatewords: 24 }}</p>{% endif %}

@@ -94,6 +94,7 @@ start_time: "10:00"
 end_time: "12:30"
 timezone: Australia/Sydney
 format: hybrid
+host_chapter: asia-pacific
 event_status: confirmed
 occurrence_status: scheduled
 venue: Venue name, Sydney
@@ -114,7 +115,8 @@ are `confirmed`, `tentative`, `postponed`, and `cancelled`. Use
 `occurrence_status: scheduled` for a future event, `occurred` after delivery
 has been confirmed, or `unconfirmed` for an older schedule where delivery
 cannot be verified. Omit `venue` and `registration_url` when they do not
-apply.
+apply. Set the optional `host_chapter` to a chapter `slug` defined in
+`_data/community.yml`; omit it until the host is confirmed.
 
 ### Add a news item
 
@@ -232,7 +234,7 @@ documentation, scripts, and caches are not deployment inputs.
 | `_plugins/` | Build-time event and activity logic |
 | `_scripts/` | Source validation |
 | `_sass/`, `assets/` | Styles, JavaScript, images, and downloads |
-| `about/`, `community/`, `contact/`, `events/`, `news/`, `resources/` | Archive and information pages |
+| `about/`, `chapters/`, `community/`, `contact/`, `events/`, `news/`, `resources/` | Archive and information pages |
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the complete content schemas and
 publishing requirements.

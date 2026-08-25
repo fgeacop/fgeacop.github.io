@@ -34,7 +34,29 @@ sectors:
       - Data Zoo
       - DAMA Australia
 
-affiliate_chapters:
-  - European Union and United Kingdom
-  - Middle East
-  - North America
+chapters:
+  - name: Asia-Pacific
+    slug: asia-pacific
+    status: active
+    status_label: Current chapter
+    home_base: Sydney, Australia
+    description: >-
+      The current home chapter of FGEA CoP, connecting enterprise architecture
+      practitioners, researchers, and thought leaders across the Asia-Pacific
+      region.
+  - name: Europe
+    slug: europe
+    status: forthcoming
+    status_label: Launching soon
+    home_base: Details to be announced
+    description: >-
+      A European chapter is being established to extend regional participation
+      and contribute to the shared symposium programme.
+
+symposium_hosting:
+  format: Hybrid
+  description: >-
+    The chapters will share responsibility for the quarterly symposium
+    programme. The planned annual rotation comprises two symposiums hosted by
+    Asia-Pacific and two hosted by Europe, with hybrid participation supporting
+    engagement across regions.
