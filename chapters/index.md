@@ -1,13 +1,12 @@
 ---
 layout: page
 title: FGEA CoP Chapters
-description: Regional FGEA Community of Practice chapters and the shared quarterly symposium hosting model.
+description: Regional chapters of the Future Generation Enterprise Architecture Community of Practice.
 permalink: /chapters/
 ---
 
-FGEA CoP is developing a network of regional chapters with local home bases
-and a shared global programme. Chapters create regional points of connection
-while contributing to one community and one quarterly symposium series.
+FGEA CoP is developing a network of regional chapters with local home bases.
+Chapters create regional points of connection within one community.
 
 {% for chapter in site.data.community.chapters %}
 <h2 id="{{ chapter.slug }}">{{ chapter.name }}</h2>
@@ -18,16 +17,6 @@ while contributing to one community and one quarterly symposium series.
 
 {{ chapter.description }}
 {% endfor %}
-
-## Shared symposium programme
-
-**Format:** {{ site.data.community.symposium_hosting.format }}
-
-{{ site.data.community.symposium_hosting.description }}
-
-Hosting details will be identified on each event page as the programme develops.
-Browse [upcoming and previous symposiums]({{ '/events/' | relative_url }}) for
-the latest published information.
 
 ## Participate or present
 

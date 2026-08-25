@@ -17,7 +17,7 @@ Our advisory committees bring together organisations from the public sector, hig
 
 ## Regional chapters
 
-FGEA CoP is developing a regional chapter network to support participation and
-shared symposium hosting across time zones.
+FGEA CoP is developing a regional chapter network to support participation
+across regions.
 
 [Explore FGEA CoP chapters]({{ '/chapters/' | relative_url }})
