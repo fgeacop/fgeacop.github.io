@@ -4,7 +4,7 @@ ruby "3.4.4"
 
 gem "exifr", "1.4.1"
 gem "jekyll", "4.4.1"
-gem "jekyll-feed", "0.17.0"
+gem "jekyll-feed", "0.18.0"
 gem "jekyll-redirect-from", "0.16.0"
 gem "jekyll-seo-tag", "2.9.0"
 gem "jekyll-sitemap", "1.4.0"
