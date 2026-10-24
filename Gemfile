@@ -12,5 +12,5 @@ gem "tzinfo", "2.0.6"
 gem "webrick", "1.9.2"
 
 group :development, :test do
-  gem "html-proofer", "5.2.2"
+  gem "html-proofer", "5.2.3"
 end
